@@ -14,6 +14,19 @@ $(function() {
   )
   console.log(origin);
   processLinkedTickets();
+
+  $('.get_help').on('click', showDeflectionModal);
+  function showDeflectionModal(){
+    client.invoke('instances.create', {
+      location: 'modal',
+      url: 'assets/deflection-modal.html'
+    }).then(function(modalContext) {
+      // The modal is on the screen, now resize it
+      var modalClient = client.instance(modalContext['instances.create'][0].instanceGuid);
+      modalClient.invoke('resize', { width: '40vw', height: '100%' });
+    });
+  }
+
 });
 
 function processLinkedTickets() {
