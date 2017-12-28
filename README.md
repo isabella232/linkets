@@ -7,7 +7,7 @@ limited by the tag field constraint of 5096 characters, otherwise there are no l
 
 Built with ZAFv2.
 
-"Linkets" is a portmanteau of "linked ticktets."
+"Linkets" is a portmanteau of "linked tickets."
 
 ## Issues
 
