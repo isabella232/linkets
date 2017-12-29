@@ -1,9 +1,9 @@
 {
   "name": "Linkets",
   "author": {
-    "name": "Alex Glover",
-    "email": "alex@alexdglover.com",
-    "url": "http://www.alexdglover.com"
+    "name": "Zendesk Labs",
+    "email": "zendesklabs@zendesk.com",
+    "url": "https://github.com/zendesklabs/linkets"
   },
   "defaultLocale": "en",
   "private": false,
