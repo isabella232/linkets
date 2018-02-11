@@ -150,6 +150,8 @@ function showNoLinkedTickets() {
 }
 
 function getSearchResults() {
+  $('#candidate-ticket-loading-icon').show()
+
   var client = ZAFClient.init();
   var query = $("#linked-ticket-search").val();
   var settings = {
@@ -165,9 +167,11 @@ function getSearchResults() {
         console.log(data);
         console.log('Calling showSearchResults');
       }
+      $('#candidate-ticket-loading-icon').hide();
       showSearchResults(data['results']);
     },
     function(response) {
+      $('#candidate-ticket-loading-icon').hide();
       showApiError(response);
     }
   );
@@ -250,8 +254,7 @@ function linkTicket(id, relationship) {
 
     if(errors == 0){
       $("#candidate-tickets").html('<h2>Linked successfully!</h2>');
-      $('#content').html('<h3>Loading...</h3>');
-      setTimeout(processLinkedTickets, 3000);
+      setTimeout(processLinkedTickets, 1500);
     }
     else {
       $("#candidate-tickets").html('<h2>Error when linking tickets!</h2>');
@@ -316,17 +319,12 @@ function unlinkTicket(id, relationship) {
 
     if(errors == 0){
       $("#candidate-tickets").html('<h2>Unlinked successfully!</h2>');
-      $('#content').html('<h3>Loading...</h3>');
-      setTimeout(processLinkedTickets, 3000);
+      setTimeout(processLinkedTickets, 1500);
     }
     else {
       $("#candidate-tickets").html('<h2>Error when unlinking tickets!</h2>');
     }
   })
-}
-
-function showLoadingIndicator() {
-  $('#content').html('<h3>Loading...</h3>');
 }
 
 function invertRelationship(relationshipCode) {

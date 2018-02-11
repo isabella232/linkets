@@ -1,12 +1,11 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- <link href="https://cdn.jsdelivr.net/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
-  <!-- <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/0/zendesk_garden.css" type="text/css"> -->
   <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/1/zendesk_garden.css" type="text/css">
-  <link href="garden-index.css" rel="stylesheet">
   <link href="main.css" rel="stylesheet">
+  <link href="garden-index.css" rel="stylesheet">
   <link href="garden-table.css" rel="stylesheet">
+  <link href="loaders.css" rel="stylesheet">
 </head>
 <body>
 
@@ -20,6 +19,7 @@
         Search
       </button>
     </div>
+    <div id="candidate-ticket-loading-icon" class="loader" style="display: none;"></div>
     <div class="content" id="candidate-tickets"></div>
   </div>
 
