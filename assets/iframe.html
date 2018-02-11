@@ -44,7 +44,7 @@
       {{else}}
       <tr class="c-table__row">
       {{/everyOther}}
-        <td class="c-table__row__cell"><a href="{{browser_url}}" target="_blank">{{id}} - {{subject}}</a></td>
+        <td class="c-table__row__cell"><a href="#" onclick="openTicket('{{id}}')">{{id}} - {{subject}}</a></td>
         <td class="c-table__row__cell">
           <div class="l-btn-group u-mb-lg">
             <button class="c-btn js-menu">
@@ -82,7 +82,7 @@
       <tr class="c-table__row">
       {{/everyOther}}
         <td class="c-table__row__cell">{{relationship}}</td>
-        <td class="c-table__row__cell"><a href="{{browser_url}}" target="_blank">{{id}} - {{subject}}</a></td>
+        <td class="c-table__row__cell"><a href="#" onclick="openTicket('{{id}}')">{{id}} - {{subject}}</a></td>
         <td class="c-table__row__cell" style="text-align: right;">
           <button class="c-btn c-btn--primary c-btn--danger c-btn--icon" onclick="unlinkTicket('{{id}}', '{{relationshipCode}}')">
             <p style="color:white;">X</p>

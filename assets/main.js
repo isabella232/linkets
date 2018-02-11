@@ -117,8 +117,7 @@ function showLinkedTickets(linkedTickets, data) {
       'id': id,
       'relationship': translateRelationship(relationship),
       'relationshipCode': relationship,
-      'subject': ticket_data['subject'],
-      'browser_url': origin + '/agent/tickets/' + id
+      'subject': ticket_data['subject']
     }
   }
 
@@ -180,8 +179,7 @@ function showSearchResults(data) {
   for (i=0; i < data.length; i++){
     display_data[data[i]['id']] = {
       'id': data[i]['id'],
-      'subject': data[i]['subject'],
-      'browser_url': origin + '/agent/tickets/' + data[i]['id']
+      'subject': data[i]['subject']
     }
   }
 
@@ -353,4 +351,9 @@ function translateRelationship(relationshipCode) {
   }
 
   return relationships[relationshipCode]
+}
+
+function openTicket(id){
+  var client = ZAFClient.init();
+  client.invoke('routeTo', 'ticket', id);
 }
