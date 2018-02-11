@@ -117,8 +117,7 @@ function showLinkedTickets(linkedTickets, data) {
       'id': id,
       'relationship': translateRelationship(relationship),
       'relationshipCode': relationship,
-      'subject': ticket_data['subject'],
-      'browser_url': origin + '/agent/tickets/' + id
+      'subject': ticket_data['subject']
     }
   }
 
@@ -151,6 +150,8 @@ function showNoLinkedTickets() {
 }
 
 function getSearchResults() {
+  $('#candidate-ticket-loading-icon').show()
+
   var client = ZAFClient.init();
   var query = $("#linked-ticket-search").val();
   var settings = {
@@ -166,9 +167,11 @@ function getSearchResults() {
         console.log(data);
         console.log('Calling showSearchResults');
       }
+      $('#candidate-ticket-loading-icon').hide();
       showSearchResults(data['results']);
     },
     function(response) {
+      $('#candidate-ticket-loading-icon').hide();
       showApiError(response);
     }
   );
@@ -180,8 +183,7 @@ function showSearchResults(data) {
   for (i=0; i < data.length; i++){
     display_data[data[i]['id']] = {
       'id': data[i]['id'],
-      'subject': data[i]['subject'],
-      'browser_url': origin + '/agent/tickets/' + data[i]['id']
+      'subject': data[i]['subject']
     }
   }
 
@@ -252,8 +254,7 @@ function linkTicket(id, relationship) {
 
     if(errors == 0){
       $("#candidate-tickets").html('<h2>Linked successfully!</h2>');
-      $('#content').html('<h3>Loading...</h3>');
-      setTimeout(processLinkedTickets, 3000);
+      setTimeout(processLinkedTickets, 1500);
     }
     else {
       $("#candidate-tickets").html('<h2>Error when linking tickets!</h2>');
@@ -318,17 +319,12 @@ function unlinkTicket(id, relationship) {
 
     if(errors == 0){
       $("#candidate-tickets").html('<h2>Unlinked successfully!</h2>');
-      $('#content').html('<h3>Loading...</h3>');
-      setTimeout(processLinkedTickets, 3000);
+      setTimeout(processLinkedTickets, 1500);
     }
     else {
       $("#candidate-tickets").html('<h2>Error when unlinking tickets!</h2>');
     }
   })
-}
-
-function showLoadingIndicator() {
-  $('#content').html('<h3>Loading...</h3>');
 }
 
 function invertRelationship(relationshipCode) {
@@ -353,4 +349,9 @@ function translateRelationship(relationshipCode) {
   }
 
   return relationships[relationshipCode]
+}
+
+function openTicket(id){
+  var client = ZAFClient.init();
+  client.invoke('routeTo', 'ticket', id);
 }
