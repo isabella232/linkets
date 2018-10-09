@@ -11,7 +11,7 @@ Built with ZAFv2.
 
 ## Issues
 
-Please submit bug reports/issues on the [GitHub repo](https://github.com/aglover-zendesk/linkets/issues). Pull requests are welcome.
+Please submit bug reports/issues on the [GitHub repo](https://github.com/zendesklabs/linkets/issues). Pull requests are welcome.
 
 ### Screenshot(s):
 ![image](https://user-images.githubusercontent.com/25018339/31585812-a62887c2-b18d-11e7-87eb-76c8e412d0f1.png)
